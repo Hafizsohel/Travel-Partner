@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@color/charcoal">
+
+    <ImageView
+        android:id="@+id/btnMenu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/menu"
+        android:onClick="ClickMenu" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Travel Partner"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/playfair_display_bold_italic"/>
+
+    <ImageView
+        android:id="@+id/btnSearch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/search"
+        android:padding="6dp"
+        android:onClick="onClickSearch"
+        android:clickable="true"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>
