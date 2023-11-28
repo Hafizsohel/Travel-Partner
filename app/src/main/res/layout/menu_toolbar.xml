@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="55dp"
     android:orientation="horizontal"
-    android:padding="12dp"
+    android:padding="10dp"
     android:background="@color/charcoal">
 
     <ImageView
@@ -11,26 +11,26 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/menu"
+        android:layout_marginTop="4dp"
         android:onClick="ClickMenu" />
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Travel Partner"
+        android:fontFamily="@font/playfair_display_bold_italic"
         android:gravity="center"
+        android:text="Travel Partner"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/playfair_display_bold_italic"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/btnSearch"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/search"
-        android:padding="6dp"
-        android:onClick="onClickSearch"
-        android:clickable="true"
+        android:layout_marginTop="4dp"
+        
         android:layout_gravity="center_vertical"/>
 
 </LinearLayout>

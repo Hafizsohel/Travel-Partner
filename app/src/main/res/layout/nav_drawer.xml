@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="250dp"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:id="@+id/nav_drawer_layout"
@@ -28,7 +28,7 @@
                 android:id="@+id/profileImg"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/search"/>
+                android:src="@drawable/placeholder"/>
 
         </LinearLayout>
 
@@ -56,30 +56,73 @@
         </LinearLayout>
     </LinearLayout>
 
-
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:stretchColumns="*">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/black"
-            android:text="Logout" />
+        <!-- About Row -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/menu_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48px"
-            android:src="@drawable/search"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:padding="8dp" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:src="@drawable/placeholder"/>
+        </TableRow>
 
-    </LinearLayout>
+        <!-- Contact Row -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:padding="8dp" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:src="@drawable/placeholder" />
+        </TableRow>
+
+        <!-- Dashboard Row -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:padding="8dp" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:src="@drawable/placeholder"/>
+        </TableRow>
+    </TableLayout>
+
 
 
 

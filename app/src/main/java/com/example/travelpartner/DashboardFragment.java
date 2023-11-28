@@ -59,8 +59,6 @@ public class DashboardFragment extends Fragment {
                 openDrawer(drawerLayout);
             }
         });
-
-
         return binding.getRoot();
     }
 

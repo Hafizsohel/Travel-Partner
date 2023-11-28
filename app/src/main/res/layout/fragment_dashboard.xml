@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <include layout="@layout/menu_toolbar"/>
 
             <androidx.viewpager.widget.ViewPager
@@ -95,7 +96,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
-                            android:text="Beautiful Place"
+                            android:text="Resort"
                             android:textSize="21sp"
                             android:textStyle="bold" />
 
@@ -103,8 +104,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/new_product"
-                            android:layout_marginLeft="9dp"
-                            android:text="We provide best products." />
+                            android:layout_marginLeft="4dp"
+                            android:text="All Resort here!" />
 
                         <TextView
                             android:id="@+id/newProducts_see_all"
@@ -142,8 +143,8 @@
                         android:id="@+id/popular_products"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="9dp"
-                        android:text="Popular Products"
+                        android:layout_marginLeft="4dp"
+                        android:text="Beautiful Place"
                         android:textSize="21sp"
                         android:textStyle="bold" />
 
@@ -151,8 +152,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/popular_products"
-                        android:layout_marginLeft="9dp"
-                        android:text="We provide best products." />
+                        android:layout_marginLeft="4dp"
+                        android:text="Here are all the beautiful places." />
 
                     <TextView
                         android:id="@+id/popular_see_all"
@@ -183,6 +184,7 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="start">
+
             <include layout="@layout/nav_drawer"/>
 
             <ImageView
