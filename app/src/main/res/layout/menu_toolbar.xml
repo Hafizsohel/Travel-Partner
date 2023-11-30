@@ -11,7 +11,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/menu"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:onClick="ClickMenu" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/search"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         
         android:layout_gravity="center_vertical"/>
 
