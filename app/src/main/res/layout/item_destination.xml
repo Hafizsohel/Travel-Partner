@@ -4,26 +4,26 @@
     android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="@color/snow"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/snow">
+        android:background="@color/card_glass">
 
         <ImageView
             android:id="@+id/destination_image"
             android:layout_width="148dp"
             android:layout_height="80dp"
-            android:contentDescription="Place Image"
             android:layout_marginTop="6dp"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="Place Image"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/destination_title"
@@ -31,12 +31,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Place Name"
-            android:textColor="@color/black"
+            android:textColor="#FF222222"
             android:textSize="14sp"
+            android:background="@android:color/transparent"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/destination_image"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/destination_image" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

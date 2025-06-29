@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ghost_white"
+        android:background="#E6FFFFFF"
         tools:context=".fragment.ResortFragment">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarResort"

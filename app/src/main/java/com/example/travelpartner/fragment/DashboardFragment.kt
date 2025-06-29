@@ -67,6 +67,8 @@ class DashboardFragment : Fragment() {
         binding.btnMenu.setOnClickListener {
             openDrawer(binding.drawerLayer)
         }
+
+        setupNavDrawerClicks()
         noticeBar = binding.noticeBar
         noticeScrollView = binding.noticeScrollView
         recyclerView = binding.bannerRecyclerView
@@ -85,111 +87,43 @@ class DashboardFragment : Fragment() {
 
         setupDotsIndicator()
         fetchBannersFromFirestore()
-        FetchAllLocation()
+        fetchAllLocation()
         binding.progressBar.visibility = View.VISIBLE
         binding.progressBar1.visibility = View.VISIBLE
         val layoutManager = recyclerView.layoutManager as? LinearLayoutManager
 
 
+
         binding.btnPlaces.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, LocationFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(LocationFragment())
         }
 
         binding.btnResort.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, ResortFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(ResortFragment())
         }
 
         binding.btnHotel.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, HotelFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(HotelFragment())
         }
 
         binding.btnRestaurant.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, RestaurantFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(RestaurantFragment())
         }
 
         binding.btnCafe.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, CafeFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(CafeFragment())
         }
 
         binding.btnSeeAll.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, SeeLocationFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(SeeLocationFragment())
         }
-        //val spinnerOthers: Spinner = binding.root.findViewById(R.id.spinnerOthers)
-      /*  val spinnerOthers: AutoCompleteTextView = binding.root.findViewById(R.id.spinnerOthers)
-
-        val options = listOf("River", "Lake", "Park")
-
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, options)
-        spinnerOthers.setAdapter(adapter)
-
-        spinnerOthers.setOnClickListener {
-            spinnerOthers.showDropDown()
-        }
-
-        spinnerOthers.setOnItemClickListener { parent, view, position, id ->
-            val selectedOption = options[position]
-            when (selectedOption) {
-                "River" -> {
-                    val riverFragment = RiverFragment()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.FrameLayoutID, riverFragment)
-                        .addToBackStack(null)
-                        .commit()
-                    //Toast.makeText(requireContext(), "Selected: $selectedOption", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }*/
-
-        /*val spinnerOthers: AutoCompleteTextView = binding.root.findViewById(R.id.spinnerOthers)
-
-        val options = listOf("River", "Lake", "Park")
-
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, options)
-        spinnerOthers.setAdapter(adapter)
-
-        binding.spinnerOthers.setOnClickListener {
-            spinnerOthers.showDropDown()
-
-        }
-
-        spinnerOthers.setOnItemClickListener { parent, view, position, id ->
-            val selectedOption = options[position]
-            when (selectedOption) {
-                "River" -> {
-                    val riverFragment = RiverFragment()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.FrameLayoutID, riverFragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-            }
-
-        }*/
 
 
         spinnerOthers = binding.root.findViewById(R.id.spinnerOthers)
 
         val options = listOf("River", "Lake", "Park")
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, options)
+        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, options)
         spinnerOthers.setAdapter(adapter)
 
         binding.spinnerOthers.setOnClickListener {
@@ -198,53 +132,22 @@ class DashboardFragment : Fragment() {
 
         spinnerOthers.setOnItemClickListener { parent, view, position, id ->
             val selectedOption = options[position]
-            when (selectedOption) {
-                "River" -> {
-                    val riverFragment = RiverFragment()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.FrameLayoutID, riverFragment)
-                        .addToBackStack(null)
-                        .commit()
-
-                }
+            val fragmentToShow = when (selectedOption) {
+                "River" -> RiverFragment()
+                "Lake" -> RiverFragment()
+                "Park" -> RiverFragment()
+                else -> null
+            }
+            fragmentToShow?.let {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.FrameLayoutID, it)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
 
 
-
-
-
-
-        /*  binding.btnOthers.setOnClickListener {
-              val inflater = LayoutInflater.from(requireContext())
-              val view = inflater.inflate(R.layout.custom_popup_menu, null)
-              val popupWindow = PopupWindow(view, 400, 400)
-              popupWindow.isOutsideTouchable = true
-
-              val riverTextView = view.findViewById<TextView>(R.id.river)
-              val lakeTextView = view.findViewById<TextView>(R.id.lake)
-              val parkTextView = view.findViewById<TextView>(R.id.park)
-
-              riverTextView.setOnClickListener {
-                  parentFragmentManager.beginTransaction()
-                      .replace(R.id.FrameLayoutID, RiverFragment())
-                      .addToBackStack(null)
-                      .commit()
-                  popupWindow.dismiss()
-              }
-
-              lakeTextView.setOnClickListener {
-                  Toast.makeText(requireContext(), "Lake clicked!", Toast.LENGTH_SHORT).show()
-                  popupWindow.dismiss()
-              }
-
-              parkTextView.setOnClickListener {
-                  Toast.makeText(requireContext(), "Park clicked!", Toast.LENGTH_SHORT).show()
-                  popupWindow.dismiss()
-              }
-              popupWindow.showAsDropDown(binding.btnOthers)
-          }*/
-
+/*
         //nav_drawer
         val dashboardLayout = binding.root.findViewById<LinearLayout>(R.id.dashboard_Id)
         val contactLayout = binding.root.findViewById<LinearLayout>(R.id.contact_Id)
@@ -269,14 +172,17 @@ class DashboardFragment : Fragment() {
                 .replace(R.id.FrameLayoutID, AboutUsFragment())
                 .addToBackStack(null)
                 .commit()
-        }
+        }*/
 
         showSlider()
         duplicateTextContent()
         noticeScrollView.post { scrollNoticeBar() }
 
         destinationAdapter.onItemClicked = { selectedLocation ->
-            GetLocationsHelper.navigateToLocationDetailFragment(parentFragmentManager, selectedLocation)
+            GetLocationsHelper.navigateToLocationDetailFragment(
+                parentFragmentManager,
+                selectedLocation
+            )
         }
         noticeViewModel = ViewModelProvider(this)[NoticeViewModel::class.java]
         noticeViewModel.notice.observe(viewLifecycleOwner) { notice ->
@@ -286,6 +192,40 @@ class DashboardFragment : Fragment() {
         return binding.root
 
     }
+
+    // Helper function to replace fragment and add to backstack
+    private fun replaceFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.FrameLayoutID, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun setupNavDrawerClicks() {
+        val dashboardLayout = binding.root.findViewById<LinearLayout>(R.id.dashboard_Id)
+        val contactLayout = binding.root.findViewById<LinearLayout>(R.id.contact_Id)
+        val aboutLayout = binding.root.findViewById<LinearLayout>(R.id.about_Us)
+
+        val navMap = mapOf(
+            dashboardLayout to DashboardFragment(),
+            contactLayout to ContactFragment(),
+            aboutLayout to AboutUsFragment()
+        )
+
+        navMap.forEach { (layout, fragment) ->
+            layout.setOnClickListener {
+                replaceFragment(fragment)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val options = listOf("River", "Lake", "Park")
+        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, options)
+        spinnerOthers.setAdapter(adapter)
+    }
+
 
     private fun showSlider() {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -304,6 +244,7 @@ class DashboardFragment : Fragment() {
     private fun openDrawer(drawerLayout: DrawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START)
     }
+
     private fun fetchBannersFromFirestore() {
         val db = FirebaseFirestore.getInstance()
         db.collection("Locations").get().addOnSuccessListener { result ->
@@ -347,7 +288,7 @@ class DashboardFragment : Fragment() {
         })
     }
 
-    private fun FetchAllLocation() {
+    private fun fetchAllLocation() {
         // Fetch data from Firebase
         binding.progressBar1.visibility = View.VISIBLE
         val databaseReference = FirebaseDatabase.getInstance().getReference("locations")
@@ -373,6 +314,7 @@ class DashboardFragment : Fragment() {
         val textContent = noticeBar.text.toString()
         noticeBar.text = "$textContent $textContent"
     }
+
 
     private fun scrollNoticeBar() {
         val scrollWidth = noticeBar.width / 2
