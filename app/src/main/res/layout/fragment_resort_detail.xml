@@ -6,7 +6,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/ghost_white"
+            android:background="@drawable/details_background"
             tools:context=".fragment.ResortDetailFragment">
 
             <androidx.appcompat.widget.Toolbar
@@ -124,7 +124,9 @@
                 android:layout_marginEnd="8dp"
                 android:textAlignment="textStart"
                 android:text="Cox's Bazar Sea Beach is a real gem! Located in Bangladesh, it's known for having one of the longest sandy beaches in the world. The Bay of Bengal graces its shores, making it a picturesque destination."
-                android:textColor="@color/black"
+                android:textColor="#212121"
+                android:background="@drawable/liquid_readable"
+                android:lineSpacingExtra="4dp"
                 android:textSize="14sp" />
                 </LinearLayout>
             </ScrollView>

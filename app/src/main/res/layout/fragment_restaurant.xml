@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ghost_white"
+        android:background="@drawable/details_background"
         tools:context=".fragment.RestaurantFragment">
 
         <androidx.appcompat.widget.Toolbar
@@ -54,7 +54,7 @@
                     android:contentDescription="Select a district"
                     android:dropDownHeight="200dp"
                     android:inputType="none"
-                    android:popupBackground="@color/ghost_white"
+                    android:popupBackground="@drawable/liquid"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 

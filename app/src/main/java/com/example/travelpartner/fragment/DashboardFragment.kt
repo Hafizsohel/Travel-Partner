@@ -1,14 +1,11 @@
 package com.example.travelpartner.fragment
 
 import android.animation.ObjectAnimator
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.GravityCompat
@@ -21,12 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.PopupMenu
-import android.widget.PopupWindow
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -37,13 +30,18 @@ import com.example.travelpartner.utils.GetLocationsHelper
 import com.example.travelpartner.application.GridSpacingItemDecoration
 import com.example.travelpartner.model.LocationModel
 import com.example.travelpartner.viewmodel.NoticeViewModel
-import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+
 
 class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
@@ -68,6 +66,7 @@ class DashboardFragment : Fragment() {
             openDrawer(binding.drawerLayer)
         }
 
+        createNotificationChannel()
         setupNavDrawerClicks()
         noticeBar = binding.noticeBar
         noticeScrollView = binding.noticeScrollView
@@ -85,14 +84,14 @@ class DashboardFragment : Fragment() {
         binding.destinationRecyclerView.layoutManager = GridLayoutManager(context, 2)
         binding.destinationRecyclerView.addItemDecoration(GridSpacingItemDecoration(padding))
 
+
+
         setupDotsIndicator()
         fetchBannersFromFirestore()
         fetchAllLocation()
         binding.progressBar.visibility = View.VISIBLE
         binding.progressBar1.visibility = View.VISIBLE
         val layoutManager = recyclerView.layoutManager as? LinearLayoutManager
-
-
 
         binding.btnPlaces.setOnClickListener {
             replaceFragment(LocationFragment())
@@ -117,19 +116,22 @@ class DashboardFragment : Fragment() {
         binding.btnSeeAll.setOnClickListener {
             replaceFragment(SeeLocationFragment())
         }
+        binding.btnBell.setOnClickListener {
+            Toast.makeText(requireContext(), "Notification icon clicked!", Toast.LENGTH_SHORT).show()
+        }
 
 
         spinnerOthers = binding.root.findViewById(R.id.spinnerOthers)
 
         val options = listOf("River", "Lake", "Park")
 
-        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, options)
+        val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, options)
         spinnerOthers.setAdapter(adapter)
 
         binding.spinnerOthers.setOnClickListener {
             spinnerOthers.showDropDown()
         }
-
+        spinnerOthers.setDropDownBackgroundResource(R.drawable.liquid)
         spinnerOthers.setOnItemClickListener { parent, view, position, id ->
             val selectedOption = options[position]
             val fragmentToShow = when (selectedOption) {
@@ -145,34 +147,6 @@ class DashboardFragment : Fragment() {
                     .commit()
             }
         }
-
-
-/*
-        //nav_drawer
-        val dashboardLayout = binding.root.findViewById<LinearLayout>(R.id.dashboard_Id)
-        val contactLayout = binding.root.findViewById<LinearLayout>(R.id.contact_Id)
-        val aboutLayout = binding.root.findViewById<LinearLayout>(R.id.about_Us)
-
-        dashboardLayout.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, DashboardFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-
-        contactLayout.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, ContactFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-
-        aboutLayout.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, AboutUsFragment())
-                .addToBackStack(null)
-                .commit()
-        }*/
 
         showSlider()
         duplicateTextContent()
@@ -200,7 +174,7 @@ class DashboardFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
-
+    //nav_drawer
     private fun setupNavDrawerClicks() {
         val dashboardLayout = binding.root.findViewById<LinearLayout>(R.id.dashboard_Id)
         val contactLayout = binding.root.findViewById<LinearLayout>(R.id.contact_Id)
@@ -222,7 +196,7 @@ class DashboardFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val options = listOf("River", "Lake", "Park")
-        val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, options)
+        val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, options)
         spinnerOthers.setAdapter(adapter)
     }
 
@@ -338,6 +312,19 @@ class DashboardFragment : Fragment() {
             }
         } else {
             noticeScrollView.postDelayed({ scrollNoticeBar() }, 100)
+        }
+    }
+
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "channel_id",
+                "Default Channel",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            val manager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(channel)
         }
     }
 }

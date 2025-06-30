@@ -12,14 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.travelpartner.adapter.DestinationAdapter
 import com.example.travelpartner.adapter.LocationAdapter
-import com.example.travelpartner.databinding.FragmentPlacesBinding
+import com.example.travelpartner.databinding.FragmentLocationBinding
 import com.example.travelpartner.utils.GetLocationsHelper
 import com.example.travelpartner.viewmodel.LocationViewModel
 
 class LocationFragment : Fragment() {
-    private lateinit var binding: FragmentPlacesBinding
+    private lateinit var binding: FragmentLocationBinding
     private lateinit var viewModel: LocationViewModel
     private lateinit var adapter: LocationAdapter
 
@@ -27,7 +26,7 @@ class LocationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlacesBinding.inflate(layoutInflater)
+        binding = FragmentLocationBinding.inflate(layoutInflater)
 
         adapter = LocationAdapter(requireContext(), mutableListOf())
         binding.placeRecyclerView.layoutManager = LinearLayoutManager(requireContext())

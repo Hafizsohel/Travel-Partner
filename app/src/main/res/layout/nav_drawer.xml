@@ -4,7 +4,7 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@drawable/liquid_background">
 
 
     <LinearLayout
@@ -40,13 +40,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/ghost_white">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@android:color/transparent">
 
             <LinearLayout
                 android:id="@+id/dashboard_Id"
@@ -66,9 +66,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text= "Dashboard"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:text="Dashboard"
+                    android:textColor="#212121"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#33FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -90,8 +96,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Contact"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textColor="#212121"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#33FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1" />
             </LinearLayout>
 
 
@@ -114,8 +125,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="About Us"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textColor="#212121"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#33FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1" />
             </LinearLayout>
 
 

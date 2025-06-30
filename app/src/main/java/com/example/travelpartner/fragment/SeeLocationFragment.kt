@@ -37,23 +37,7 @@ class SeeLocationFragment : Fragment() {
         binding.locationsRecyclerView.layoutManager = GridLayoutManager(context, 2)
         binding.locationsRecyclerView.addItemDecoration(GridSpacingItemDecoration(padding))
 
-      /*  destinationAdapter.onItemClicked = { selectedLocation ->
-            val bundle = Bundle().apply {
-                putString("name", selectedLocation.name)
-                putString("imageUrl", selectedLocation.imageUrl)
-                putString("bn_desc", selectedLocation.bn_desc)
-                putString("rating", selectedLocation.rating)
-            }
 
-            val fragment = LocationsDetailFragment().apply {
-                arguments = bundle
-            }
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.FrameLayoutID, fragment)
-                .addToBackStack(null)
-                .commit()
-        }*/
 
         destinationAdapter.onItemClicked = { selectedLocation ->
             // Call the helper method to navigate

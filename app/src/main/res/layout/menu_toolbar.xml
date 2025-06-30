@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/btnNotification"
+        android:id="@+id/btnBell"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/bell_icon"

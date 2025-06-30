@@ -19,7 +19,7 @@ class ContactFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentContactBinding.inflate(inflater, container, false)
+        binding = FragmentContactBinding.inflate(layoutInflater)
 
         val toolbar = binding.toolbarContact as Toolbar
         toolbar.setNavigationOnClickListener {
