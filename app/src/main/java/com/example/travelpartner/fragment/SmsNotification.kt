@@ -17,8 +17,7 @@ import com.example.travelpartner.databinding.FragmentSmsNotificationBinding
 
 class SmsNotification : Fragment() {
 
-    private var _binding: FragmentSmsNotificationBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentSmsNotificationBinding
 
     // BroadcastReceiver that will be triggered by MyFirebaseMessagingService
     private val notificationReceiver = object : BroadcastReceiver() {
@@ -32,7 +31,7 @@ class SmsNotification : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentSmsNotificationBinding.inflate(inflater, container, false)
+        binding = FragmentSmsNotificationBinding.inflate(layoutInflater)
 
         createNotificationChannel()
 
@@ -68,7 +67,6 @@ class SmsNotification : Fragment() {
         super.onDestroyView()
         // Unregister the broadcast receiver
         requireContext().unregisterReceiver(notificationReceiver)
-        _binding = null
     }
 
     private fun createNotificationChannel() {
@@ -83,6 +81,5 @@ class SmsNotification : Fragment() {
         }
 
     }
-
 }
 

@@ -8,20 +8,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@android:color/transparent">
+        app:cardElevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/liquid_background">
+            android:background="@drawable/liquid_glass">
 
             <ImageView
                 android:id="@+id/imageLocation"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_margin="8dp"
                 android:contentDescription="@string/project_id"
                 android:scaleType="centerCrop"
                 android:src="@drawable/placeholder"
@@ -49,18 +47,18 @@
             <TextView
                 android:id="@+id/textLocationAddress"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:text="Location Address"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageLocation"
-                app:layout_constraintTop_toBottomOf="@id/textLocationName"
-                tools:text=" Sea Beach Road, Cox's Bazar, Bangladesh" />
+                android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="Location Address"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageLocation"
+            app:layout_constraintTop_toBottomOf="@id/textLocationName"
+            tools:text="Sea Beach Road, Cox's Bazar, Bangladesh" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
