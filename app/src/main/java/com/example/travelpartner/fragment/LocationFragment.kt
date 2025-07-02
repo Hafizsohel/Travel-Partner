@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.travelpartner.R
 import com.example.travelpartner.adapter.LocationAdapter
 import com.example.travelpartner.databinding.FragmentLocationBinding
 import com.example.travelpartner.utils.GetLocationsHelper
@@ -72,13 +73,16 @@ class LocationFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
-    //
     private fun setupDistrictDropdown(districts: List<String>) {
+        val cleanedDistricts = districts.map { it.trim() }
+
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            districts
+            R.layout.item_dropdown,
+            R.id.dropdown_item_text,
+            cleanedDistricts
         )
+
         binding.autoCompleteDistrict.setAdapter(adapter)
 
         binding.autoCompleteDistrict.setOnItemClickListener { _, _, position, _ ->
@@ -89,6 +93,7 @@ class LocationFragment : Fragment() {
             }
         }
     }
+
     private fun toggleProgressBar(isLoading: Boolean) {
         if (isLoading) {
             binding.locationProgressBar.visibility = View.VISIBLE

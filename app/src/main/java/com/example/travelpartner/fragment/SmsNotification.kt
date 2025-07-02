@@ -76,7 +76,8 @@ class SmsNotification : Fragment() {
                 "Default Channel",
                 NotificationManager.IMPORTANCE_HIGH
             )
-            val manager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val manager =
+                requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
         }
 

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.travelpartner.R
 import com.example.travelpartner.adapter.RiverAdapter
 import com.example.travelpartner.databinding.FragmentRiverBinding
 import com.example.travelpartner.model.RiverModel
@@ -69,10 +70,13 @@ class RiverFragment : Fragment() {
     }
 
     private fun setupDistrictDropdown(districts: List<String>) {
+        val cleanedDistricts = districts.map { it.trim() }
+
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            districts
+            R.layout.item_dropdown,
+            R.id.dropdown_item_text,
+            cleanedDistricts
         )
         binding.autoCompleteDistrict.setAdapter(adapter)
         binding.autoCompleteDistrict.setOnItemClickListener { _, _, position, _ ->

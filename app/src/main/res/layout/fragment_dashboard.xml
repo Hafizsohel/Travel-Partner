@@ -39,8 +39,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/liquid">
+                        android:background="@drawable/liquid"
+                        android:orientation="vertical">
 
                         <FrameLayout
                             android:layout_width="match_parent"
@@ -58,9 +58,10 @@
                                 android:id="@+id/progressBar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:visibility="gone"
-                                android:layout_gravity="center" />
+                                android:layout_gravity="center"
+                                android:visibility="gone" />
                         </FrameLayout>
+
                         <LinearLayout
                             android:id="@+id/indicatorLayout"
                             android:layout_width="match_parent"
@@ -73,15 +74,15 @@
                             android:id="@+id/noticeScrollView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scrollbars="none"
-                            android:overScrollMode="never">
+                            android:overScrollMode="never"
+                            android:scrollbars="none">
 
                             <TextView
                                 android:id="@+id/noticeBar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
                                 android:background="@drawable/liquid_background"
+                                android:padding="10dp"
                                 android:text="@string/noticeText"
                                 android:textColor="@color/travel_blue"
                                 android:textSize="16sp" />
@@ -93,8 +94,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
                             android:layout_marginTop="6dp"
+                            android:layout_marginEnd="8dp"
                             android:columnCount="3"
                             android:orientation="horizontal"
                             android:rowCount="2">
@@ -105,9 +106,9 @@
                                 android:layout_height="0dp"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
+                                android:background="@drawable/liquid_background"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:background="@drawable/liquid_background"
                                 android:padding="8dp">
 
                                 <ImageView
@@ -120,9 +121,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="Destination"
                                     android:textAlignment="center"
-                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp"
-                                    android:textColor="@color/black" />
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -131,10 +132,10 @@
                                 android:layout_height="0dp"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_marginStart="4dp"
                                 android:background="@drawable/liquid_background"
+                                android:gravity="center"
+                                android:orientation="vertical"
                                 android:padding="8dp">
 
                                 <ImageView
@@ -147,9 +148,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="Resorts"
                                     android:textAlignment="center"
-                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp"
-                                    android:textColor="@color/black" />
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -158,10 +159,10 @@
                                 android:layout_height="0dp"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_marginStart="4dp"
                                 android:background="@drawable/liquid_background"
+                                android:gravity="center"
+                                android:orientation="vertical"
                                 android:padding="8dp">
 
                                 <ImageView
@@ -174,9 +175,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="Hotels"
                                     android:textAlignment="center"
-                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp"
-                                    android:textColor="@color/black" />
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -186,9 +187,9 @@
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
                                 android:layout_marginTop="4dp"
+                                android:background="@drawable/liquid_background"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:background="@drawable/liquid_background"
                                 android:padding="8dp">
 
                                 <ImageView
@@ -212,11 +213,11 @@
                                 android:layout_height="0dp"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_marginStart="4dp"
                                 android:layout_marginTop="4dp"
                                 android:background="@drawable/liquid_background"
+                                android:gravity="center"
+                                android:orientation="vertical"
                                 android:padding="8dp">
 
                                 <ImageView
@@ -230,8 +231,8 @@
                                     android:text="Cafe"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="12sp"/>
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -240,38 +241,39 @@
                                 android:layout_height="0dp"
                                 android:layout_rowWeight="1"
                                 android:layout_columnWeight="1"
-                                android:gravity="center"
-                                android:orientation="vertical"
                                 android:layout_marginStart="4dp"
                                 android:layout_marginTop="4dp"
                                 android:background="@drawable/liquid_background"
+                                android:gravity="center"
+                                android:orientation="vertical"
                                 android:padding="8dp">
 
                                 <AutoCompleteTextView
                                     android:id="@+id/spinnerOthers"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Others"
-                                    android:gravity="center"
-                                    android:textColor="@color/charcoal"
-                                    android:textStyle="bold"
-                                    android:focusable="false"
-                                    android:cursorVisible="false"
-                                    android:textSize="16sp"
-                                    android:padding="6dp"
-                                    android:inputType="none"
                                     android:background="@drawable/bg_no_underline"
-                                    android:drawableEnd="@drawable/more" />
+                                    android:cursorVisible="false"
+                                    android:drawableEnd="@drawable/more"
+                                    android:focusable="false"
+                                    android:gravity="center"
+                                    android:inputType="none"
+                                    android:padding="6dp"
+                                    android:text="Others"
+                                    android:textColor="@color/charcoal"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
                             </LinearLayout>
 
                         </GridLayout>
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:padding="5dp"
-                            android:background="@drawable/liquid_background">
+                            android:background="@drawable/liquid_background"
+                            android:padding="5dp">
 
                             <TextView
                                 android:id="@+id/beautiful_place"
@@ -290,28 +292,28 @@
                                 android:layout_marginEnd="8dp"
                                 android:text="See All"
                                 android:textColor="#FF000000"
-                                android:textSize="16sp"/>
+                                android:textSize="16sp" />
                         </RelativeLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/destinationRecyclerView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:padding="5dp"
-                                android:layout_marginBottom="4dp"
-                                tools:listitem="@layout/item_destination" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/destinationRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="4dp"
+                            android:padding="5dp"
+                            tools:listitem="@layout/item_destination" />
 
                         <ProgressBar
                             android:id="@+id/progressBar1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:layout_gravity="center"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent" />
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
             </LinearLayout>
@@ -343,6 +345,7 @@
                     android:layout_gravity="start" />
 
             </RelativeLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewOptions"
                 android:layout_width="match_parent"

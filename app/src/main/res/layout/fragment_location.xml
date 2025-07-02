@@ -3,126 +3,125 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/liquid"
-                tools:context=".fragment.LocationFragment">
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbarPlace"
-                    android:layout_width="0dp"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/charcoal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:navigationIcon="@drawable/back_button"
-                    app:title="Pathfinder"
-                    app:titleTextColor="@android:color/white"
-                    app:menu="@menu/resort_menu" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/liquid"
+        tools:context=".fragment.LocationFragment">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/filterRow"
-                    android:layout_width="0dp"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarPlace"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/charcoal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/resort_menu"
+            app:navigationIcon="@drawable/back_button"
+            app:title="Pathfinder"
+            app:titleTextColor="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/filterRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarPlace">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/placeDistrictDropdown"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:hint="Select District"
+                app:boxStrokeColor="@color/charcoal"
+                app:endIconTint="@color/charcoal"
+                app:hintTextColor="@color/charcoal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/placeSearchContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteDistrict"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginHorizontal="16dp"
+                    android:contentDescription="Select a district"
+                    android:dropDownHeight="200dp"
+                    android:inputType="none"
+                    android:popupBackground="@drawable/list_background"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    app:layout_constraintTop_toBottomOf="@id/toolbarPlace"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/placeSearchContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Search Place"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/charcoal"
+                app:endIconDrawable="@drawable/ic_search"
+                app:endIconMode="custom"
+                app:endIconTint="@color/charcoal"
+                app:hintTextColor="@color/charcoal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/placeDistrictDropdown"
+                app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/placeDistrictDropdown"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Select District"
-                        app:boxStrokeColor="@color/charcoal"
-                        app:hintTextColor="@color/charcoal"
-                        app:endIconTint="@color/charcoal"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/placeSearchContainer"
-                        android:layout_marginEnd="8dp"
-                        >
-
-                        <AutoCompleteTextView
-                            android:id="@+id/autoCompleteDistrict"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:dropDownHeight="200dp"
-                            android:contentDescription="Select a district"
-                            android:inputType="none"
-                            android:popupBackground="@drawable/liquid"
-                            android:singleLine="true" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/placeSearchContainer"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Search Place"
-                        app:boxBackgroundMode="outline"
-                        app:boxStrokeColor="@color/charcoal"
-                        app:hintTextColor="@color/charcoal"
-                        app:endIconMode="custom"
-                        app:endIconDrawable="@drawable/ic_search"
-                        app:endIconTint="@color/charcoal"
-                        app:layout_constraintStart_toEndOf="@id/placeDistrictDropdown"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/searchLocations"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/placeHeader"
-                    android:layout_width="0dp"
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/searchLocations"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Available Places:"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:background="@color/charcoal_light"
-                    android:paddingStart="12dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/filterRow"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/placeRecyclerView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:clipToPadding="false"
-                    android:scrollbars="vertical"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="6dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/placeHeader" />
+        <TextView
+            android:id="@+id/placeHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/charcoal_light"
+            android:paddingStart="12dp"
+            android:text="Available Places:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filterRow" />
 
-                <ProgressBar
-                    android:id="@+id/locationProgressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/placeRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placeHeader" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/locationProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </layout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+</layout>

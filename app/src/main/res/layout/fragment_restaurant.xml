@@ -54,7 +54,7 @@
                     android:contentDescription="Select a district"
                     android:dropDownHeight="200dp"
                     android:inputType="none"
-                    android:popupBackground="@drawable/liquid"
+                    android:popupBackground="@drawable/list_background"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -131,7 +131,7 @@ class DashboardFragment : Fragment() {
         binding.spinnerOthers.setOnClickListener {
             spinnerOthers.showDropDown()
         }
-        spinnerOthers.setDropDownBackgroundResource(R.drawable.liquid)
+        spinnerOthers.setDropDownBackgroundResource(R.drawable.list_background)
         spinnerOthers.setOnItemClickListener { parent, view, position, id ->
             val selectedOption = options[position]
             val fragmentToShow = when (selectedOption) {
